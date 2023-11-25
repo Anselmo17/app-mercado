@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  form = this.fb.group({
+    nome: ['', Validators.required],
+    tipo_produto: ['', [Validators.required, Validators.minLength(2)]],
+  });
 
-  ngOnInit(): void {
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit(): void {}
+
+  sendForm(){
+    console.log('-------------------',this.form.value);
   }
 
 }

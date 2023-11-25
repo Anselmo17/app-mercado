@@ -28,7 +28,6 @@ export class ProdutosComponent implements OnInit {
     this.http.get<any>(`${environment.local}produtos`)
       .pipe(finalize(() => this.loading = false))
       .subscribe((data) => {
-        console.log(data);
         this.listProdutos = data;
       })
   }
