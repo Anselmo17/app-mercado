@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { finalize } from 'rxjs/operators';
+import { Product } from 'src/app/model/product.model';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,26 +11,26 @@ import { environment } from 'src/environments/environment';
 })
 export class ProdutosComponent implements OnInit {
 
-  public listProdutos:any = [];
-  public loading:boolean=false;
+  public listProdutos: Array<Product> = [];
+  public loading: boolean = false;
 
   constructor(
     private http: HttpClient
   ) { }
 
   ngOnInit(): void {
-    this.getProdutos()
+    this.getProdutos();
   }
 
 
   getProdutos() {
     this.loading = true;
     this.http.get<any>(`${environment.local}produtos`)
-    .pipe(finalize(() => this.loading = false))
-    .subscribe((data) => {
-      console.log(data);
-      this.listProdutos = data;
-    })
+      .pipe(finalize(() => this.loading = false))
+      .subscribe((data) => {
+        console.log(data);
+        this.listProdutos = data;
+      })
   }
 
 }
