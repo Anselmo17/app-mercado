@@ -28,6 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## check list
-- criar um modal para adicionar os produtos
-- recarregar a lista com os produtos atualizados
-- validar as rotas do back se esse sendo utilizadas
+- criar um modal para adicionar os produtos [X]
+- criar os campos do modal []
+- recarregar a lista com os produtos atualizados []
+- validar as rotas do back se esse sendo utilizadas []
